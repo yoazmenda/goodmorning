@@ -3,8 +3,12 @@
 
 <head>
     <style>
+        * {
+            background-color: antiquewhite
+        }
+
         .button {
-            background-color: #4CAF50;
+            background-color: chocolate;
             border: none;
             color: white;
             padding: 15px 32px;
@@ -27,7 +31,7 @@
 </head>
 
 
-<body>
+<body style="">
     <center>
         <br>
         <br>
@@ -40,18 +44,22 @@
         <br>
         <br>
         <br>
-        <div id="questionContainer" style="outline-style: double; font: 8em sans-serif; color: coral; width: 80%;">
-            question
+        <div id="questionContainer" style="outline-style: double; font: 6em sans-serif; color: darksalmon; width: 80%;">
+            ...
         </div>
     </center>
 </body>
 <script>
 
     var questions = [
-        "?מה החיה האהובה עליך",
-        "Favorite Food?"
-
-
+        "Whats your favorite animal?",
+        "Whats your favorite salty food?",
+        "Whats your favorite sweet food?",
+        "perfect date - city or nature?",
+        "perfect date - city or nature?",
+        "המלצה בנטפליקס",
+        "מה את/ה רוצה לעשות כשתהייה/י גדול/ה?",
+        "are you a morning person?",
     ]
 
     alreadyAsked = [
@@ -70,7 +78,13 @@
 
     function popQuestion() {
         var question = questions[Math.floor(Math.random() * questions.length)]
-        document.getElementById("questionContainer").innerHTML = question
+        if (question == undefined) {
+            document.getElementById("questionContainer").innerHTML = "<img src=./nomore.gif>";
+
+        }
+        else {
+            document.getElementById("questionContainer").innerHTML = question
+        }
         remove(questions, question)
     }
 
