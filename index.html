@@ -1,1 +1,79 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Document</title>
+
+</head>
+
+
+<body>
+    <center>
+        <br>
+        <br>
+        <br>
+        <button class="button" onclick=" popQuestion()"> Hit ME</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="questionContainer" style="outline-style: double; font: 8em sans-serif; color: coral; width: 80%;">
+            question
+        </div>
+    </center>
+</body>
+<script>
+
+    var questions = [
+        "?מה החיה האהובה עליך",
+        "Favorite Food?"
+
+
+    ]
+
+    alreadyAsked = [
+
+    ]
+
+    function remove(arr, what) {
+        var found = arr.indexOf(what);
+
+        while (found !== -1) {
+            arr.splice(found, 1);
+            found = arr.indexOf(what);
+        }
+    }
+
+
+    function popQuestion() {
+        var question = questions[Math.floor(Math.random() * questions.length)]
+        document.getElementById("questionContainer").innerHTML = question
+        remove(questions, question)
+    }
+
+</script>
+
+</html>
